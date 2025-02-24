@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>HTMX Demo</title>
+    <!-- Include HTMX from a CDN -->
+    <script src="https://unpkg.com/htmx.org@1.8.4"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="container mx-auto">
+      <h1 class="font-bold text-3xl">Paanga No</h1>
+      <form>
+        {% csrf_token %}
+        <h3 class="text-xl mt-6 mb-3">Login</h3>
+        {% if form.errors %}
+          <p>Invalid email/password combination</p>
+        {% endif %}
+        <div>
+          <label>Email</label>
+          <br />
+          {{ form.username }}
+        </div>
+        <div>
+          <label>Password</label>
+          <br />
+          {{ form.password }}
+        </div>
+        <div>
+          <button type="submit" class="bg-green-800 text-white px-3 py-1 mt-4">Sign In</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

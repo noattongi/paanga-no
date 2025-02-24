@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="/investors/new">New Investor</a>
+<div>
+  Investors
+</div>
+<table>
+  {% for investor in investors %}
+    <tr>
+      <td class="w-1/5">
+        {{investor.first_name}} {{investor.last_name}}
+      </td>
+      <td class="w-1/2">
+        {{investor.total_contributions}}
+      </td>
+      <td class="w-3/10">
+        <a href="{% url 'show_investor' investor.pk %}">View</a> |
+        <a href="{% url 'new_transaction' %}?investor_id={{ investor.pk }}"> New Transaction</a>
+      </td>
+    </tr>
+  {% empty %}
+    <div>No investors</div>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Paanga No</title>
+    <!-- Include HTMX from a CDN -->
+    <script src="https://unpkg.com/htmx.org@1.8.4"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple-v1.css">
+  </head>
+  <body>
+    <header>
+        <a href="/">Home</a>
+        <a href="/loans">Loans</a>
+        <a href="/investors">Investors</a>
+    </header>
+    <main>
+      {% block content %}
+      <!-- Default content can go here -->
+      {% endblock %}
+    </main>
+  </body>
+  {% block extra_scripts %}{% endblock %}
+</html>
