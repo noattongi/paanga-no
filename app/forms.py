@@ -20,9 +20,10 @@ class TransactionForm(forms.ModelForm):
 
   class Meta:
     model = Transaction
-    fields = ['investor','transaction_type','amount', 'reason', 'notes']
+    fields = ['investor','transaction_type','amount', 'notes']
     widgets = {
       'amount': forms.NumberInput(attrs={'min': '0'}),
+      'notes': forms.Textarea()
     }
 
   def clean(self):

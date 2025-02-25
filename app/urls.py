@@ -27,5 +27,6 @@ urlpatterns = [
     path("investors", views.investors),
     path("investors/new", views.new_investor),
     path("investors/<int:pk>", views.show_investor, name="show_investor"),
+    path("transactions", views.transactions),
     path("transactions/new", views.new_transaction, name="new_transaction"),
 ]

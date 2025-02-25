@@ -5,7 +5,10 @@
   <h1>
     New Transaction
   </h1>
-  {{form.as_p}}
-  {{form.initial}}
+  <form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Submit</button>
+  </form>
 </div>
 {% endblock %}

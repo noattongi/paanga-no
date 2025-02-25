@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .forms import InvestorForm, TransactionForm
-from .models import Investor
+from .models import Investor, Transaction
 
 def index(request):
   return render(request, "index.html")
@@ -28,6 +28,10 @@ def new_investor(request):
 def show_investor(request, pk):
   investor = get_object_or_404(Investor, pk=pk)
   return render(request, "investors/show.html", {'investor': investor})
+
+def transactions(request) :
+  transactions = Transaction.objects.select_related('investor').all()
+  return render(request, "transactions/index.html", {'transactions': transactions})
 
 def new_transaction(request) :
   if request.method == 'POST':
